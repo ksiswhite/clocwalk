@@ -200,7 +200,7 @@ def start(**kwargs):
     :return:
     """
     code_dir = kwargs.get('code_dir', '')
-    enable_online_recursive = kwargs.get('enable_online_recursive', False)
+    enable_online_recursive = kwargs.get('enable_online_recursive', True)
     deep_recursive = kwargs.get('deep_recursive', False)
     pom_file_list = recursive_search_files(code_dir, '*/pom.xml')
 
