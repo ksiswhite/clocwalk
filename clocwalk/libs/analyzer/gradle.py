@@ -153,7 +153,7 @@ def find_product_info(content, origin_file=None):
                 if len(info) == 2:
                     result.append({
                         'vendor': info[0],
-                        'name': info[1],
+                        'product': info[1],
                         'version': '',
                         'new_version': '',
                         'cve': '',

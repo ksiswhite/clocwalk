@@ -18,16 +18,18 @@ def _get_dependencies(file_name='package.json', origin=None):
     with open(file_name, 'r') as fp:
         json_obj = json.load(fp)
         for tag in ['dependencies', 'devDependencies']:
-            for name, ver in json_obj[tag].items():
-                result.append({
-                    'vendor': tag,
-                    'product': name,
-                    'version': ver,
-                    'new_version': '',
-                    'parent_file': '',
-                    'cve': {},
-                    'origin_file': file_name,
-                })
+            #添加if判断,防止因找不到key报错
+            if tag in json_obj:
+                for name, ver in json_obj[tag].items():
+                    result.append({
+                        'vendor': tag,
+                        'product': name,
+                        'version': ver,
+                        'new_version': '',
+                        'parent_file': '',
+                        'cve': {},
+                        'origin_file': file_name,
+                    })
     return result
 
 
