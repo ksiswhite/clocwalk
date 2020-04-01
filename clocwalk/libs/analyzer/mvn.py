@@ -35,6 +35,8 @@ def start(**kwargs):
             lines = dot_file.readlines()[1:-1]
             for line in lines:
                 ret = re.match(r".*\"(\S+)\" -> \"(\S+)\" ;",line)
+                if not ret:
+                    continue
                 parent, _self = ret.group(1),ret.group(2)
                 tree[_self] = parent
                 parent_file = parse_parent(parent, tree)
