@@ -37,6 +37,8 @@ def _get_dependencies(file_name='requirements.txt', origin=None):
 
     with open(file_name, 'r') as fp:
         for line in fp:
+            if '#' in line:
+                continue
             name, ver = _get_version(line.strip())
             result.append({
                 'vendor': '',

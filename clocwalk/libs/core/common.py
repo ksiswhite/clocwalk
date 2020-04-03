@@ -59,6 +59,20 @@ def recursive_search_files(search_dir, file_info):
 
     return file_list
 
+def recursive_search_files_pom(search_dir, file_info):
+    file_list = recursive_search_files(search_dir, file_info)
+    main_file = []
+    if len(file_list) > 1:
+        for _file in file_list:
+            with open(_file) as pom_file:
+                content = pom_file.read()
+                match = re.search(r'    <modules>',content)
+                if match:
+                    main_file.append(_file)
+        return file_list, main_file
+
+    else:
+        return file_list, file_list
 
 def parse_int(str_value, default_value=0):
     """

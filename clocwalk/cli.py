@@ -77,7 +77,10 @@ class ClocDetector(object):
         try:
             logger.info('analysis statistics code ...')
             self.cloc.start(code_dir=self.code_dir, args=self.cloc_args)
-            self._result['cloc'] = json.loads(self.cloc.result)
+            if self.cloc.result:
+                self._result['cloc'] = json.loads(self.cloc.result)
+            else:
+                self._result['cloc'] = {}
         except Exception as ex:
             import traceback;traceback.print_exc()
             logger.warning(ex)
