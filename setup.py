@@ -11,7 +11,7 @@ setup(
     description='Project code and dependent component analysis tools.',
     author='MyKings',
     author_email='xsseroot@gmail.com',
-    url='https://github.com/MyKings/clocwalk',
+    url='https://github.com/ksiswhite/clocwalk',
     packages=find_packages(),
     include_package_data=True,
     entry_points={
