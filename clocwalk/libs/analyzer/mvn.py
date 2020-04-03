@@ -3,6 +3,9 @@ from clocwalk.libs.core.common import recursive_search_files
 import os
 import re
 
+
+__product__ = 'Java'
+__version__ = '1.0'
 # 依赖递归寻找父依赖树
 def parse_parent(parent, tree):
     result = ''
