@@ -40,15 +40,16 @@ def _get_dependencies(file_name='requirements.txt', origin=None):
             if '#' in line:
                 continue
             name, ver = _get_version(line.strip())
-            result.append({
-                'vendor': '',
-                'product': name,
-                'version': ver,
-                'new_version': '',
-                'parent_file': '',
-                'cve': {},
-                'origin_file': file_name,
-            })
+            if name:
+                result.append({
+                    'vendor': '',
+                    'product': name,
+                    'version': ver,
+                    'new_version': '',
+                    'parent_file': '',
+                    'cve': {},
+                    'origin_file': file_name,
+                })
 
     return result
 
